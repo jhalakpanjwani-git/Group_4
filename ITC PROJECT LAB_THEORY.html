@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Learning Portal</title>
     <style>
         .bg-image {
-         position: fixed;
-         top: 0;
-         left: 0;
-         width: 100vw;
-        height: 100vh;
-        object-fit: cover;
-        z-index: 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            z-index: 0;
         }
 
         :root {
@@ -25,12 +26,13 @@
             --text-dim: #94a3b8;
         }
 
-  
+
         input::-webkit-outer-spin-button,
         input::-webkit-inner-spin-button {
             -webkit-appearance: none;
             margin: 0;
         }
+
         input[type=number] {
             -moz-appearance: textfield;
         }
@@ -60,10 +62,27 @@
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
         }
 
-        h2 { font-weight: 600; text-align: center; margin: 0 0 8px 0; }
-        .sub-heading { color: var(--text-dim); font-size: 14px; text-align: center; margin-bottom: 32px; line-height: 1.5; }
+        h2 {
+            font-weight: 600;
+            text-align: center;
+            margin: 0 0 8px 0;
+        }
 
-        .module-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-bottom: 24px; }
+        .sub-heading {
+            color: var(--text-dim);
+            font-size: 14px;
+            text-align: center;
+            margin-bottom: 32px;
+            line-height: 1.5;
+        }
+
+        .module-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
         .module-item {
             background: var(--slate-card);
             border: 1px solid var(--border-soft);
@@ -73,11 +92,33 @@
             cursor: pointer;
             transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        .module-item:hover { border-color: var(--indigo); transform: translateY(-2px); }
-        .module-item.active { border-color: var(--emerald); background: rgba(16, 185, 129, 0.05); }
-        .module-item span { display: block; }
-        .module-item .code { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-dim); margin-bottom: 4px; }
-        .module-item .name { font-weight: 500; font-size: 14px; }
+
+        .module-item:hover {
+            border-color: var(--indigo);
+            transform: translateY(-2px);
+        }
+
+        .module-item.active {
+            border-color: var(--emerald);
+            background: rgba(16, 185, 129, 0.05);
+        }
+
+        .module-item span {
+            display: block;
+        }
+
+        .module-item .code {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-dim);
+            margin-bottom: 4px;
+        }
+
+        .module-item .name {
+            font-weight: 500;
+            font-size: 14px;
+        }
 
         .faculty-card {
             display: flex;
@@ -91,171 +132,280 @@
             cursor: pointer;
             transition: 0.2s;
         }
-        .faculty-card:hover { background: rgba(255, 255, 255, 0.05); }
-        .faculty-card.picked { border-color: var(--emerald); background: rgba(16, 185, 129, 0.08); }
-        .time-pill { font-size: 11px; font-weight: 600; color: var(--indigo); background: rgba(99, 102, 241, 0.1); padding: 4px 10px; border-radius: 6px; }
 
-        .dash-container { display: grid; grid-template-columns: 1fr 1.2fr; gap: 20px; margin-top: 10px; }
-        .profile-side { background: #020617; padding: 20px; border-radius: 16px; border: 1px solid var(--border-soft); }
-        .schedule-side { padding: 20px; border-radius: 16px; border: 1px dashed var(--border-soft); }
-        .label { font-size: 10px; text-transform: uppercase; color: var(--text-dim); margin-bottom: 4px; letter-spacing: 0.5px; }
-        .data { font-size: 15px; font-weight: 500; margin-bottom: 16px; }
+        .faculty-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
 
-        input, select { width: 100%; padding: 14px; margin-bottom: 12px; border-radius: 12px; border: 1px solid var(--border-soft); background: #020617; color: white; box-sizing: border-box; outline: none; transition: 0.2s; }
-        input:focus { border-color: var(--emerald); }
-        
-        button.primary { width: 100%; padding: 16px; background: var(--emerald); color: #020617; border: none; border-radius: 12px; font-weight: 600; cursor: pointer; transition: 0.2s; margin-top: 12px; }
-        button.primary:hover { opacity: 0.9; transform: scale(0.99); }
-        .link-btn { display: block; width: 100%; text-align: center; background: none; border: none; color: var(--text-dim); margin-top: 16px; cursor: pointer; font-size: 13px; text-decoration: underline; }
+        .faculty-card.picked {
+            border-color: var(--emerald);
+            background: rgba(16, 185, 129, 0.08);
+        }
 
-        .view-step { display: none; animation: slideUp 0.4s ease-out; }
-        @keyframes slideUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .time-pill {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--indigo);
+            background: rgba(99, 102, 241, 0.1);
+            padding: 4px 10px;
+            border-radius: 6px;
+        }
+
+        .dash-container {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 20px;
+            margin-top: 10px;
+        }
+
+        .profile-side {
+            background: #020617;
+            padding: 20px;
+            border-radius: 16px;
+            border: 1px solid var(--border-soft);
+        }
+
+        .schedule-side {
+            padding: 20px;
+            border-radius: 16px;
+            border: 1px dashed var(--border-soft);
+        }
+
+        .label {
+            font-size: 10px;
+            text-transform: uppercase;
+            color: var(--text-dim);
+            margin-bottom: 4px;
+            letter-spacing: 0.5px;
+        }
+
+        .data {
+            font-size: 15px;
+            font-weight: 500;
+            margin-bottom: 16px;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 14px;
+            margin-bottom: 12px;
+            border-radius: 12px;
+            border: 1px solid var(--border-soft);
+            background: #020617;
+            color: white;
+            box-sizing: border-box;
+            outline: none;
+            transition: 0.2s;
+        }
+
+        input:focus {
+            border-color: var(--emerald);
+        }
+
+        button.primary {
+            width: 100%;
+            padding: 16px;
+            background: var(--emerald);
+            color: #020617;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+            margin-top: 12px;
+        }
+
+        button.primary:hover {
+            opacity: 0.9;
+            transform: scale(0.99);
+        }
+
+        .link-btn {
+            display: block;
+            width: 100%;
+            text-align: center;
+            background: none;
+            border: none;
+            color: var(--text-dim);
+            margin-top: 16px;
+            cursor: pointer;
+            font-size: 13px;
+            text-decoration: underline;
+        }
+
+        .view-step {
+            display: none;
+            animation: slideUp 0.4s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     </style>
 </head>
+
 <body>
-<img src="background.jpeg" class="bg-image" alt="">
+    <img src="background.jpeg" class="bg-image" alt="">
 
-<div class="portal-wrapper">
-    <div class="view-step" id="login"> 
-        <h2>Student Portal</h2>
-        <p class="sub-heading">Please enter your student ID</p>
-        <input id="id" type="text" inputmode="numeric" placeholder="Student ID Number">
-        <button class="primary" onclick="auth()">Open Portal</button>
-    </div>
-
-    <div class="view-step" id="info">
-        <h2>Student Info</h2>
-        <p class="sub-heading">Acadedmic Background</p>
-        <input id="name" type="text" placeholder="Your Full Name">
-        <select id="field">
-            <option value="">Choose your major</option>
-            <option>Computer Science</option>
-            <option>Medical Science</option>
-            <option>Applied Physics</option>
-        </select>
-        <select id="dept">
-            <option value="">Your Department</option>
-            <option>IT & Software Engineering</option>
-            <option>Biological Sciences</option>
-            <option>Natural Sciences</option>
-        </select>
-        <button class="primary" onclick="saveInfo()">Next Page</button>
-        <button class="link-btn" onclick="go('login')">Back</button>
-    </div>
-    <div class="view-step" id="subjects">
-        <h2>What are you learning?</h2>
-        <p class="sub-heading">Select the modules you want to enroll in for this session.</p>
-        <div class="module-grid">
-            <div class="module-item" onclick="toggleSub(this, 'Computer')">
-                <span class="code">CS-101</span><span class="name">Computing</span>
-            </div>
-            <div class="module-item" onclick="toggleSub(this, 'Medical')">
-                <span class="code">BIO-202</span><span class="name">Biology</span>
-            </div>
-            <div class="module-item" onclick="toggleSub(this, 'Physics')">
-                <span class="code">PHY-305</span><span class="name">Physics</span>
-            </div>
+    <div class="portal-wrapper">
+        <div class="view-step" id="login">
+            <h2>Student Portal</h2>
+            <p class="sub-heading">Please enter your student ID</p>
+            <input id="id" type="text" inputmode="numeric" placeholder="Student ID Number">
+            <button class="primary" onclick="auth()">Open Portal</button>
         </div>
-        <button class="primary" onclick="loadFaculty()">Find Instructors</button>
-        <button class="link-btn" onclick="go('info')">Edit my profile</button>
-    </div>
 
-    <div class="view-step" id="teachers">
-        <h2>Choose Faculty</h2>
-        <p class="sub-heading">Select your Faculty member</p>
-        <div id="teacherList"></div>
-        <button class="primary" onclick="finish()">Finalize Enrollment</button>
-        <button class="link-btn" onclick="go('subjects')">Change my subjects</button>
-    </div>
-
-    <div class="view-step" id="summary">
-        <h2>Everything's set!</h2>
-        <p class="sub-heading">Your registration is confirmed. Here's your overview.</p>
-        <div class="dash-container">
-            <div class="profile-side" id="dashId"></div>
-            <div class="schedule-side" id="dashSched"></div>
+        <div class="view-step" id="info">
+            <h2>Student Info</h2>
+            <p class="sub-heading">Acadedmic Background</p>
+            <input id="name" type="text" placeholder="Your Full Name">
+            <select id="field">
+                <option value="">Choose your major</option>
+                <option>Computer Science</option>
+                <option>Medical Science</option>
+                <option>Applied Physics</option>
+            </select>
+            <select id="dept">
+                <option value="">Your Department</option>
+                <option>IT & Software Engineering</option>
+                <option>Biological Sciences</option>
+                <option>Natural Sciences</option>
+            </select>
+            <button class="primary" onclick="saveInfo()">Next Page</button>
+            <button class="link-btn" onclick="go('login')">Back</button>
         </div>
-        <button class="primary" style="background:#f43f5e; color:white; margin-top:32px" onclick="reset()">Sign Out</button>
+        <div class="view-step" id="subjects">
+            <h2>What are you learning?</h2>
+            <p class="sub-heading">Select the modules you want to enroll in for this session.</p>
+            <div class="module-grid">
+                <div class="module-item" onclick="toggleSub(this, 'Computer')">
+                    <span class="code">CS-101</span><span class="name">Computing</span>
+                </div>
+                <div class="module-item" onclick="toggleSub(this, 'Medical')">
+                    <span class="code">BIO-202</span><span class="name">Biology</span>
+                </div>
+                <div class="module-item" onclick="toggleSub(this, 'Physics')">
+                    <span class="code">PHY-305</span><span class="name">Physics</span>
+                </div>
+            </div>
+            <button class="primary" onclick="loadFaculty()">Find Instructors</button>
+            <button class="link-btn" onclick="go('info')">Edit my profile</button>
+        </div>
+
+        <div class="view-step" id="teachers">
+            <h2>Choose Faculty</h2>
+            <p class="sub-heading">Select your Faculty member</p>
+            <div id="teacherList"></div>
+            <button class="primary" onclick="finish()">Finalize Enrollment</button>
+            <button class="link-btn" onclick="go('subjects')">Change my subjects</button>
+        </div>
+
+        <div class="view-step" id="summary">
+            <h2>Everything's set!</h2>
+            <p class="sub-heading">Your registration is confirmed. Here's your overview.</p>
+            <div class="dash-container">
+                <div class="profile-side" id="dashId"></div>
+                <div class="schedule-side" id="dashSched"></div>
+            </div>
+            <button class="primary" style="background:#f43f5e; color:white; margin-top:32px" onclick="reset()">Sign
+                Out</button>
+        </div>
     </div>
-</div>
-<script>
-    const instructors = {
-        Computer: [{n: "Prof. Asim Riaz", t: "09:00 AM"}, {n: "Sir Usama Khalid", t: "11:00 AM"}],
-        Medical: [{n: "Dr. Sarah", t: "12:00 PM"}, {n: "Dr. Usman", t: "02:00 PM"}],
-        Physics: [{n: "Prof. Khalid", t: "09:00 AM"}, {n: "Miss Hira", t: "01:00 PM"}]
-    };
-    let selected = [];
-    const get = (id) => document.getElementById(id);
-    const go = (id) => {
-        document.querySelectorAll('.view-step').forEach(v => v.style.display="none");
-        get(id).style.display="block";
-    };
-    window.onload = () => localStorage.getItem("uID") ? (syncDash(), go("summary")) : go("login");
+    <script>
+        const instructors = {
+            Computer: [{ n: "Prof. Asim Riaz", t: "09:00 AM" }, { n: "Sir Usama Khalid", t: "11:00 AM" }],
+            Medical: [{ n: "Dr. Sarah", t: "12:00 PM" }, { n: "Dr. Usman", t: "02:00 PM" }],
+            Physics: [{ n: "Prof. Khalid", t: "09:00 AM" }, { n: "Miss Hira", t: "01:00 PM" }]
+        };
+        let selected = [];
+        const get = (id) => document.getElementById(id);
+        const go = (id) => {
+            document.querySelectorAll('.view-step').forEach(v => v.style.display = "none");
+            get(id).style.display = "block";
+        };
+        window.onload = () => localStorage.getItem("uID") ? (syncDash(), go("summary")) : go("login");
 
-    function auth() {
-        let id = get("id").value;
-        if(!id) return;
-        localStorage.setItem("uID", id);
-        go("info");
-    }
-    function saveInfo() {
-        let n = get("name").value, f = get("field").value, d = get("dept").value;
-        if(!n || !f || !d) return alert("Just a quick check: Please fill in all fields.");
-        localStorage.setItem("uName", n);
-        localStorage.setItem("uField", f);
-        localStorage.setItem("uDept", d);
-        go("subjects");
-    }
+        function auth() {
+            let id = document.getElementById("id").value;
+            if (!/^[0-9]+$/.test(id)) {
+                alert("ID must be numeric");
+                return;
+            }
+            localStorage.setItem("uID", id);
+            go("info");
+            // let id = get("id").value;
+            // if (!id) return;
+            // localStorage.setItem("uID", id);
+            // go("info");
+        }
+        function saveInfo() {
+            let n = get("name").value, f = get("field").value, d = get("dept").value;
+            if (!n || !f || !d) return alert("Just a quick check: Please fill in all fields.");
+            localStorage.setItem("uName", n);
+            localStorage.setItem("uField", f);
+            localStorage.setItem("uDept", d);
+            go("subjects");
+        }
 
-    function toggleSub(el, val) {
-        el.classList.toggle('active');
-        selected = el.classList.contains('active') ? [...selected, val] : selected.filter(v => v !== val);
-    }
+        function toggleSub(el, val) {
+            el.classList.toggle('active');
+            selected = el.classList.contains('active') ? [...selected, val] : selected.filter(v => v !== val);
+        }
 
-    function loadFaculty() {
-        if(!selected.length) return alert("Please pick at least one module to continue.");
-        let list = get("teacherList"); list.innerHTML = "";
-        selected.forEach(s => {
-            list.innerHTML += `<p class="label" style="margin:20px 0 8px; color:var(--emerald)">${s} Department</p>`;
-            instructors[s].forEach(f => {
-                list.innerHTML += `
+        function loadFaculty() {
+            if (!selected.length) return alert("Please pick at least one module to continue.");
+            let list = get("teacherList"); list.innerHTML = "";
+            selected.forEach(s => {
+                list.innerHTML += `<p class="label" style="margin:20px 0 8px; color:var(--emerald)">${s} Department</p>`;
+                instructors[s].forEach(f => {
+                    list.innerHTML += `
                 <div class="faculty-card" onclick="this.classList.toggle('picked'); this.querySelector('input').checked = !this.querySelector('input').checked">
                     <span style="font-size:14px; font-weight:500">${f.n}</span>
                     <span class="time-pill">${f.t}</span>
                     <input type="checkbox" class="t-check" value="${f.n}" data-time="${f.t}" style="display:none">
                 </div>`;
+                });
             });
-        });
-        go("teachers");
-    }
+            go("teachers");
+        }
 
-    function finish() {
-        let picks = [...document.querySelectorAll(".t-check:checked")];
-        if(!picks.length) return alert("Please select your instructors.");
-        let times = picks.map(p => p.dataset.time);
-        if(new Set(times).size !== times.length) return alert("Oh! It looks like there's a time conflict in your schedule.");
-        
-        localStorage.setItem("uList", JSON.stringify(picks.map(p => ({n: p.value, t: p.dataset.time}))));
-        syncDash(); go("summary");
-    }
+        function finish() {
+            let picks = [...document.querySelectorAll(".t-check:checked")];
+            if (!picks.length) return alert("Please select your instructors.");
+            let times = picks.map(p => p.dataset.time);
+            if (new Set(times).size !== times.length) return alert("Oh! It looks like there's a time conflict in your schedule.");
 
-    function syncDash() {
-        get("dashId").innerHTML = `
+            localStorage.setItem("uList", JSON.stringify(picks.map(p => ({ n: p.value, t: p.dataset.time }))));
+            syncDash(); go("summary");
+        }
+
+        function syncDash() {
+            get("dashId").innerHTML = `
             <div class="label">Student</div><div class="data">${localStorage.getItem("uName")}</div>
             <div class="label">ID Number</div><div class="data">${localStorage.getItem("uID")}</div>
             <div class="label">Academic Focus</div><div class="data" style="font-size:13px">${localStorage.getItem("uDept")}</div>
         `;
-        let list = JSON.parse(localStorage.getItem("uList") || "[]");
-        let wrap = get("dashSched");
-        wrap.innerHTML = `<div class="label" style="margin-bottom:12px">Your Schedule</div>`;
-        list.forEach(i => {
-            wrap.innerHTML += `<div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:8px">
+            let list = JSON.parse(localStorage.getItem("uList") || "[]");
+            let wrap = get("dashSched");
+            wrap.innerHTML = `<div class="label" style="margin-bottom:12px">Your Schedule</div>`;
+            list.forEach(i => {
+                wrap.innerHTML += `<div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:8px">
                 <span>${i.n}</span><span style="color:var(--indigo); font-weight:600">${i.t}</span>
             </div>`;
-        });
-    }
+            });
+        }
 
-    function reset() { localStorage.clear(); location.reload(); }
-</script>
+        function reset() { localStorage.clear(); location.reload(); }
+    </script>
 </body>
+
 </html>
